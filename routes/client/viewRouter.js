@@ -5,6 +5,7 @@ const {
     getOnePokemon,
     createPokemon,
     deletePokemon,
+    updatePokemon,
 } = require('../../controllers/api/pokemonsController');
 
 const router = express.Router();
@@ -42,7 +43,6 @@ router.get('/create-pokemon', function (req, res) {
 router.post('/create-pokemon-action', async function (req, res) {
     // get the pokemon from the request body (populated by the browser when they submit the form)
     const pokemon = req.body; //> {Name: 'colin', Moves: 'grow, poison, jump'}
-    console.log(pokemon);
     // change the Moves to be an array (it's a string from the input box)
     pokemon.Moves = pokemon.Moves.split(', ');
     try {
@@ -83,6 +83,17 @@ router.get('/update-pokemon-form/:id', async function (req, res) {
     } catch (error) {
         console.log(error);
         res.send('Error updating pokemon.')
+    }
+})
+
+router.put('/pokemons/:id', async function (req, res) {
+    try {
+        req.body.Moves = req.body.Moves.split(', ');
+        const pokemon = await updatePokemon(req.params.id, req.body);
+        res.render('pokemon', {pokemon})
+    } catch (error) {
+        console.log(error);
+        res.send('Error updating pokemon.');
     }
 })
 
