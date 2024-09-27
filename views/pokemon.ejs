@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Pokemon App</title>
+</head>
+<body>
+    <h1><%= pokemon.Name %></h1>
+    <h3>PokedexNo: <%= pokemon.PokedexNo %></h3>
+    <h3>Type(s): <%= pokemon.Type %></h3>
+    <h3>Moves:</h3>
+    <ul>
+        <% pokemon.Moves.forEach((move) => { %>
+            <li><%= move %></li>
+        <% }) %>
+    </ul>
+    <a href="/pokemons">Back to the pokemons list!</a>
+</body>
+</html>

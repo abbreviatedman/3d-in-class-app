@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemons App</title>
+</head>
+<body>
+    <h1>The Complete List of Pokemons</h1>
+    <% pokemons.forEach((pokemon) => { %>
+        <h3>
+            <a href="/pokemon/<%= pokemon._id %>">
+                <%= pokemon.Name %>
+            </a>
+        </h3>
+        <h4>PokedexNo: <%= pokemon.PokedexNo %></h4>
+    <% }) %>
+</body>
+</html>
