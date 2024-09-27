@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon App</title>
+</head>
+<body>
+    <h1>Really delete <%= pokemon.Name %>?</h1>
+    <div>
+        <a href="/pokemon/<%= pokemon._id %>">Never mind! Back to the pokemon's page.</a>
+    </div>
+    <div>
+        <form action="/pokemon/<%= pokemon._id %>?_method=DELETE" method="post">
+            <input type="submit" name="_method" value="Yes, PERMANENTLY delete it" />
+        </form>
+    </div>
+</body>
+</html>

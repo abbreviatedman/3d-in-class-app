@@ -33,8 +33,34 @@ const createPokemon = async function (pokemonData) {
     }
 }
 
+const deletePokemon = async function (id) {
+    try {
+        const removedPokemon = await Pokemon.findByIdAndDelete(id);
+
+        return removedPokemon;
+    } catch (error) {
+        throw error;
+    }
+}
+
+const updatePokemon = async function (id, updateData) {
+    try {
+        const changedPokemon = await Pokemon.findByIdAndUpdate(
+            id,
+            updateData,
+            {new: true}
+        )
+
+        return changedPokemon;
+    } catch(error) {
+        throw error;
+    }
+}
+
 module.exports = {
     getAllPokemon,
     getOnePokemon,
     createPokemon,
+    deletePokemon,
+    updatePokemon,
 }

@@ -7,6 +7,8 @@
 </head>
 <body>
     <h1><%= pokemon.Name %></h1>
+    <div><a href="/update-pokemon-form/<%= pokemon._id %>">Update <%= pokemon.Name %></a></div>
+    <div><a href="/confirm-deletion/<%= pokemon._id %>">DELETE <%= pokemon.Name.toUpperCase() %></a></div>
     <h3>PokedexNo: <%= pokemon.PokedexNo %></h3>
     <h3>Type(s): <%= pokemon.Type %></h3>
     <h3>Moves:</h3>
